@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  readme-generator:
+    build: .
+    container_name: ai-readme-generator
+    ports:
+      - "8501:8501"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    restart: unless-stopped
